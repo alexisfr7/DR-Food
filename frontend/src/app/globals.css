@@ -44,7 +44,12 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground antialiased selection:bg-brand/30 selection:text-white;
+    @apply bg-background text-foreground antialiased;
+  }
+  
+  ::selection {
+    background-color: color-mix(in oklab, var(--brand) 30%, transparent);
+    color: white;
   }
 }
 
