@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 270 50% 12%; /* #1a0f2e */
+    --foreground: 0 0% 100%;
+    --card: 270 50% 12%;
+    --card-foreground: 0 0% 100%;
+    --popover: 270 50% 12%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 270 50% 12%;
+    --secondary: 270 30% 20%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 270 30% 20%;
+    --muted-foreground: 270 10% 70%;
+    --accent: 270 30% 20%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 270 30% 20%;
+    --input: 270 30% 20%;
+    --ring: 0 0% 100%;
+    --radius: 1rem;
+
+    /* Brand Colors - OKLCH format for gradients */
+    --brand: oklch(0.65 0.25 15);
+    --brand-pink: oklch(0.6 0.25 350);
+    --brand-purple: oklch(0.5 0.25 300);
+    --brand-deep: oklch(0.3 0.15 15);
+    --brand-glow: oklch(0.7 0.2 15);
+    
+    --gradient-brand: linear-gradient(135deg, var(--brand), var(--brand-pink));
+    --gradient-hero: radial-gradient(circle at 50% 0%, color-mix(in oklab, var(--brand-purple) 15%, transparent), transparent 70%),
+                     radial-gradient(circle at 80% 40%, color-mix(in oklab, var(--brand) 10%, transparent), transparent 50%),
+                     radial-gradient(circle at 20% 60%, color-mix(in oklab, var(--brand-pink) 10%, transparent), transparent 50%);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-brand/30 selection:text-white;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-brand-gradient bg-clip-text text-transparent;
+  }
+  
+  .glass {
+    @apply bg-white/5 backdrop-blur-md;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
